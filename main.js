@@ -3,7 +3,7 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 });
 const code = params.code;
 
-const request = fetch(`https://api.peterbssmyth.com/soleless/card/${code}/ar-url`, {
+const request = fetch(`https://api.peterbsmyth.com/soleless/card/${code}/ar-url`, {
   method: 'GET',
   headers: {
     'content-type': 'application/json'
