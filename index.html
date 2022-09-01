@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="/main.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
@@ -9,12 +9,13 @@
   <body>
     <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <img id="card" src="/serena.jpg" crossorigin="anonymous" />
+        <video autoplay muted loop width="256" height="256" id="card" crossorigin="anonymous" src="/carmelo.mp4" type="video/mp4"></video>
       </a-assets>
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane id="plane" src="#card" position="0 0 0" height="1.4" width="1" rotation="0 0 0"></a-plane>
+        <a-video scale="1 1 1" src="#card" width="1" height="1" position="0 0 0"></a-video>
       </a-entity>
     </a-scene>
+    <script src="/main.js"></script>
   </body>
 </html>
