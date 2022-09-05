@@ -31,11 +31,10 @@ const run = async () => {
     }
   );
   const cards = await cardsRequest.json();
-  const key = Object.keys(cards[0]).find((key) => key.includes('animation'));
-  const animationId = cards[0][key][0].id;
-
-  const animationRequest = await fetch(
-    `https://api.myth.software/soleless/animations/${animationId}`,
+  const key = Object.keys(cards[0]).find((key) => key.includes('view'));
+  const viewId = cards[0][key][0].id;
+  const viewRequest = await fetch(
+    `https://api.myth.software/soleless/views/${viewId}`,
     {
       method: 'GET',
       headers: {
@@ -43,8 +42,8 @@ const run = async () => {
       },
     }
   );
-  const { animation } = await animationRequest.json();
-  document.querySelector('#card').setAttribute('src', animation);
+  const { output } = await viewRequest.json();
+  document.querySelector('#card').setAttribute('src', output);
   document.querySelector('#card').play();
 };
 run();
